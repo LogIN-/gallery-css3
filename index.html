@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> 
+        <title>Pure CSS3 JavaScript Image Gallery Slider Plugin</title>       
+        <meta name="description" content="Pure CSS3 JavaScript Open Source Image Gallery Slider Plugin. It uses very flexible CSS animations and have lightwave fingerprint">
+        <meta name="keywords" content="image galery, javascript slider, css3 image slider, javascript image gallery">
+        <meta name="author" content="LogIN">
+        <link href="lib/lib.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="lib/animate.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="external/demo.css" media="all" rel="stylesheet" type="text/css" />
+        <link href="external/prism.css" media="all" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Averia+Serif+Libre' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="header">
+            <div id="header-images" class="cool-gallery" data-id="slider01">
+                <img src="demo-images/1.jpg" class="cool-gallery-item"  data-animationInSpeed="3000"  data-animationIn="bounce"        data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <!--            
+                    <video width="1000" height="500" controls class="cool-gallery-item video js-background_video" data-animationInSpeed="10000"  data-animationIn="flash"  data-animationOut="bounceOutLeft" data-animationOutSpeed="500">
+                        <source type="video/webm" src="http://secure-c.vimeocdn.com/p/video/yosemite_hd_ii_hd.mp4"></source>
+                        <source type="video/mp4" src="http://secure-c.vimeocdn.com/p/video/yosemite_hd_ii_hd.mp4"></source>
+                    </video> 
+                -->
+                <img src="demo-images/2.jpg" class="cool-gallery-item"  data-animationInSpeed="7000"  data-animationIn="flash"         data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <img src="demo-images/3.jpg" class="cool-gallery-item"  data-animationInSpeed="10000" data-animationIn="rubberBand"    data-animationOut="bounceOutLeft" data-animationOutSpeed="1500" >
+                <img src="demo-images/4.jpg" class="cool-gallery-item"  data-animationInSpeed="6000"  data-animationIn="shake"         data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <img src="demo-images/5.jpg" class="cool-gallery-item"  data-animationInSpeed="3000"  data-animationIn="swing"         data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <img src="demo-images/6.jpg" class="cool-gallery-item"  data-animationInSpeed="8000"  data-animationIn="tada"          data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <img src="demo-images/7.jpg" class="cool-gallery-item"  data-animationInSpeed="9000"  data-animationIn="wobble"        data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <img src="demo-images/8.jpg" class="cool-gallery-item"  data-animationInSpeed="15000" data-animationIn="bounceIn"      data-animationOut="bounceOutLeft" data-animationOutSpeed="1500" >
+                <img src="demo-images/9.jpg" class="cool-gallery-item"  data-animationInSpeed="3000"  data-animationIn="bounceInDown"  data-animationOut="bounceOutLeft" data-animationOutSpeed="1500"  >
+                <img src="demo-images/10.jpg" class="cool-gallery-item" data-animationInSpeed="20000" data-animationIn="bounceInLeft"  data-animationOut="bounceOutLeft" data-animationOutSpeed="1500" >
+            </div>
+        </div>
+        <div id="content">
+            <h1>Pure CSS3 image gallery slider</h1>
+        </div>
+        <section>
+            <pre class="language-javascript">
+                <code class="  language-javascript">
+var options = {
+    // Main API
+    // Id Of referenced gallery ("data-id: slider01")
+    galleryID: "slider01",
+    // String: DOM selector of gallery items (".cool-gallery > img" or ".cool-gallery > img, li")
+    selector: ".cool-gallery[data-id='slider01'] > img", 
+    // String: Animation for all items for "in", default if not specified in data attribute
+    animationIn: "fade",
+    // String: Animation for all items for "out" effect, default if not specified in data attribute
+    animationOut: "bounceOutLeft",
+    // Boolean: Reverse the slide order
+    reverse: false,           
+    // Integer: Should the animation loop? How Many Times? 0-...n
+    animationLoop: 100,        
+    // Boolean: Animate slider automatically         
+    slideshow: true,
+    // Boolean: Should gallery have user control previews??
+    setupGalleryControls: true,                
+    // String: animation name of gallery control fadeIn
+    galleryControlAnimation: 'rollIn',
+    // Boolean: Overlap animation In and Out time (position of gallery images must be set to "absolute") 
+    overlap: true,  
+    // Integer: Set the speed of the slideshow cycling, in milliseconds     
+    animationInSpeed: 7000,                  
+    // Integer: Set the speed of the slideshow cycling, in milliseconds     
+    animationOutSpeed: 100,       
+    // Integer: Set an initialization delay, in milliseconds 
+    initDelay: 0,     
+    // Boolean: Randomize slide order        
+    randomize: false,
+    // Callback API
+    // Callback: function(slider) - Fires when the slider loads the first slide
+    start: function(){
+        console.log("Gallery slider started");
+    },
+    // Callback: function(slider) - Fires with each slider animation       
+    before: function(item){
+        console.log("Preparing for item: " + item.id + " animation");
+    }, 
+    // Callback: function(slider) - Fires after each slider animation completes          
+    after: function(item){
+        console.log("Item: " + item.id + " animation ended");
+    },    
+    // Callback: function(slider) - Fires when the slider reaches the last slide      
+    end: function(id){
+        console.log("Gallery loop: " + id + " ended");
+    },
+    // Callback: function() - Fires when animations arent supported in browser
+    onError: function (){
+
+    }           
+};
+new coolGallery(options);
+
+/*
+    Following animations are supported:
+
+    AttentionSeekers
+
+    bounce, flash, pulse, rubberBand, shake, swing, tada, wobble
+
+    BouncingEntrances
+
+    bounceIn, bounceInDown, bounceInLeft, bounceInRight, bounceInUp
+
+    BouncingExits
+
+    bounceOut, bounceOutDown, bounceOutLeft, bounceOutRight, bounceOutUp
+
+    FadingEntrances
+
+    fadeIn, fadeInDown, fadeInDownBig, fadeInLeft, fadeInLeftBig, fadeInRight, fadeInRightBig, fadeInUp, fadeInUpBig
+
+    FadingExits
+
+    fadeOut, fadeOutDown, fadeOutDownBig, fadeOutLeft, fadeOutLeftBig, fadeOutRight, fadeOutRightBig, fadeOutUp, fadeOutUpBig
+
+    Flippers
+
+    flip, flipInX, flipInY, flipOutX, flipOutY
+
+    Lightspeed
+
+    lightSpeedIn, lightSpeedOut
+
+    RotatingEntrances
+
+    rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight
+
+    RotatingExits
+
+    rotateOut, rotateOutDownLeft, rotateOutDownRight, rotateOutUpLeft, rotateOutUpRight
+
+    Specials
+
+    hinge, rollIn, rollOut
+
+    ZoomEntrances
+
+    zoomIn, zoomInDown, zoomInLeft, zoomInRight, zoomInUp
+
+    ZoomExits
+
+    zoomOut, zoomOutDown, zoomOutLeft, zoomOutRight, zoomOutUp
+*/
+
+                </code>
+            </pre>
+        </section>
+        <footer>
+            <div class="container">
+                <a href="https://github.com/LogIN-/gallery-css3" target="_blank">GitHub</a> |  <span>MIT Licence</span>
+            </div>
+        </footer>
+
+        <a href="https://github.com/LogIN-/gallery-css3" target="_blank">
+            <img style="position: fixed; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub">
+        </a>
+    </body>
+        <script src="external/prism.js" type="text/javascript"></script>    
+        <script src="lib/lib.js" type="text/javascript"></script>    
+        <script type="text/javascript">
+            var options = {
+                // Main API
+                // Id Of referenced gallery ("data-id: slider01")
+                galleryID: "slider01",
+                // String: DOM selector of gallery items (".cool-gallery > img" or ".cool-gallery > img, li")
+                selector: ".cool-gallery[data-id='slider01'] > img", 
+                // String: Animation for all items for "in", default if not specified in data attribute
+                animationIn: "fade",
+                // String: Animation for all items for "out" effect, default if not specified in data attribute
+                animationOut: "bounceOutLeft",
+                // Boolean: Reverse the slide order
+                reverse: false,           
+                // Integer: Should the animation loop? How Many Times? 0-...n
+                animationLoop: 100,        
+                // Boolean: Animate slider automatically         
+                slideshow: true,
+                // Boolean: Should gallery have user control previews??
+                setupGalleryControls: true,                
+                // String: animation name of gallery control fadeIn
+                galleryControlAnimation: 'rollIn',
+                // Boolean: Overlap animation In and Out time (position of gallery images must be set to "absolute") 
+                overlap: true,  
+                // Integer: Set the speed of the slideshow cycling, in milliseconds     
+                animationInSpeed: 7000,                  
+                // Integer: Set the speed of the slideshow cycling, in milliseconds     
+                animationOutSpeed: 100,       
+                // Integer: Set an initialization delay, in milliseconds 
+                initDelay: 0,     
+                // Boolean: Randomize slide order        
+                randomize: false,
+                // Callback API
+                // Callback: function(slider) - Fires when the slider loads the first slide
+                start: function(){
+                    console.log("%cGallery slider started", "color:white; background-color:black");
+                },
+                // Callback: function(slider) - Fires with each slider animation       
+                before: function(item){
+                    console.log("%cPreparing for item:%c %o%c animation", "color:green; background-color:yellow", "font-style: italic", item.id, "font-style: normal");
+                }, 
+                // Callback: function(slider) - Fires after each slider animation completes          
+                after: function(item){
+                    console.log("%cItem:%c %o%c animation ended", "color:black; background-color:green", "font-style: italic", item.id, "font-style: normal");
+                },    
+                // Callback: function(slider) - Fires when the slider reaches the last slide      
+                end: function(id){
+                    console.log("%cGallery loop:%c %o%c ended", "color:white; background-color:black", "font-style: italic", id, "font-style: normal");
+                },
+                // Callback: function() - Fires when animations arent supported in browser
+                onError: function (){
+
+                }           
+            };
+
+            function initCoolGallery(){
+                var headSlider = new coolGallery(options);
+
+                // Manual JS API
+                // headSlider.animateAPI({
+                //     startAnimation: true,
+                //     pauseAnimation: false,
+                //     stopAnimation: false
+                // });
+            };
+
+            (function () {
+                if (document.readyState === "complete" || document.readyState === "interactive") {
+                    initCoolGallery();
+                } else {
+                    if (document.addEventListener) {
+                        document.addEventListener('DOMContentLoaded', function factorial() {
+                        document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+                        initCoolGallery();
+                    }, false);
+                    } else if (document.attachEvent) {
+                        document.attachEvent('onreadystatechange', function() {
+                            if (document.readyState === 'complete') {
+                                document.detachEvent('onreadystatechange', arguments.callee);
+                                initCoolGallery();
+                            }
+                        });
+                    }
+                }
+            })();
+
+        </script>
+</html>
