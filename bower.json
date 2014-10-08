@@ -1,0 +1,35 @@
+{
+  "name": "gallery-css3",
+  "version": "0.1.0",
+  "homepage": "https://github.com/LogIN-/gallery-css3",
+  "authors": [
+    "LogIN- <info@ivantomic.com>"
+  ],
+  "description": "Simple light-wave JavaScript CSS3 gallery slide-show plug-in.",
+  "main": "[\"lib/gallery-css3.js\", \"lib/gallery-css3.css\", \"lib/gallery-css3-animations.css\"]",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "image",
+    "galery",
+    "javascript",
+    "slider",
+    "css3",
+    "image",
+    "slider",
+    "javascript",
+    "image",
+    "gallery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
